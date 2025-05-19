@@ -83,7 +83,7 @@ Bespoke is a software modular synthesizer. This package contains the libraries
 needed by the program but not yet provided by OMV.
 
 %files libs
-%license LICENSE
+#license LICENSE
 %{_libdir}/*.so
 
 #----------------------------------------------------------------------------
