@@ -64,8 +64,8 @@ Features:
 * MIDI & OSC controller mapping.
 
 %files
-%license LICENSE
-%doc CHANGELOG.md README.md
+#license LICENSE
+#doc CHANGELOG.md README.md
 %{_bindir}/%{oname}
 %{_datadir}/%{oname}
 %{_datadir}/applications/%{oname}.desktop
