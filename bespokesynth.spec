@@ -118,7 +118,7 @@ for i in 16 32 48 64 128 256; do
 	magick %{buildroot}%{_datadir}/icons/hicolor/512x512/apps/bespoke_icon.png -resize ${i}x${i} %{buildroot}%{_datadir}/icons/hicolor/${i}x${i}/apps/bespoke_icon.png
 done
 
-# Workaround for wrongly installed files
+# Workaround for wrongly and duplicate installed files
 # FIXME: Find why they end up installed twice and in the wrong spot
-rm -rf %{buildroot}/home/*
-#rmdir %{buildroot}/home
+rm -rf %{buildroot}/%{oname}-%{version}/*
+rmdir %{buildroot}/%{oname}-%{version}
