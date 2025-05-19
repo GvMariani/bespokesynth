@@ -121,4 +121,4 @@ done
 # Workaround for wrongly installed files
 # FIXME: Find why they end up installed twice and in the wrong spot
 rm -rf %{buildroot}/home/*
-rmdir %{buildroot}/home
+#rmdir %{buildroot}/home
