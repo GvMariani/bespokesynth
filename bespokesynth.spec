@@ -122,5 +122,5 @@ done
 # FIXME: Find why they end up installed twice and in the wrong spot
 pushd %{buildroot}
 rm -rf ../%{oname}-%{version}/*
-rmdir ../%{oname}-%{version}
+#rmdir ../%%{oname}-%%{version}
 popd
