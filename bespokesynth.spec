@@ -120,5 +120,7 @@ done
 
 # Workaround for wrongly and duplicate installed files
 # FIXME: Find why they end up installed twice and in the wrong spot
-rm -rf %{buildroot}/%{oname}-%{version}/*
-rmdir %{buildroot}/%{oname}-%{version}
+pushd %{buildroot}
+rm -rf ../%{oname}-%{version}/*
+rmdir ../%{oname}-%{version}
+popd
