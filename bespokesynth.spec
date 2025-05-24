@@ -12,6 +12,7 @@ Url:		https://github.com/BespokeSynth
 # Submodules are a pain...
 #Source0:	https://github.com/BespokeSynth/BespokeSynth/archive/refs/tags/%%{oname}-%%{version}.tar.gz
 Source0:	%{oname}-%{version}.tar.xz
+Source100:	%{name}.rpmlintrc
 Patch0:		bespokesynth-1.3.0-use-webkit2gtk41.patch
 BuildRequires:		cmake >= 3.16
 BuildRequires:		git
@@ -64,8 +65,8 @@ Features:
 * MIDI & OSC controller mapping.
 
 %files
-#license LICENSE
-#doc CHANGELOG.md README.md
+%license LICENSE
+%doc CHANGELOG.md README.md
 %{_bindir}/%{oname}
 %{_datadir}/%{oname}
 %{_datadir}/applications/%{oname}.desktop
@@ -83,7 +84,6 @@ Bespoke is a software modular synthesizer. This package contains the libraries
 needed by the program but not yet provided by OMV.
 
 %files libs
-#license LICENSE
 %{_libdir}/*.so
 
 #----------------------------------------------------------------------------
@@ -103,7 +103,7 @@ needed by the program but not yet provided by OMV.
 %install
 %make_install -C build
 
-# Needed internal libraries not automatically installed
+# Needed libraries not automatically installed
 mkdir -p %{buildroot}%{_libdir}
 install -m 755 build/libs/freeverb/libfreeverb.so %{buildroot}%{_libdir}
 install -m 755 build/libs/nanovg/libnanovg.so %{buildroot}%{_libdir}
@@ -119,8 +119,8 @@ for i in 16 32 48 64 128 256; do
 done
 
 # Workaround for wrongly and duplicate installed files
-# FIXME: Find why they end up installed twice and in the wrong spot
+# FIXME: Find why they end up installed twice and in the wrong place
 pushd %{buildroot}
-rm -rf ../%{oname}-%{version}/*
-#rmdir ../%%{oname}-%%{version}
+	rm -rf %{oname}-%{version}/*
+#rm -rf ./tmp/*
 popd
